@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/1696/1696575.png" type="image/x-icon">
+    <title>CURE NATION - Advanced Healthcare Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- DNA Animation Canvas -->
+    <canvas id="dnaCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-hospital-symbol"></i>
+                    <span>CURE NATION</span>
+                    <span class="tagline">25 Years of Excellence</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#services">Our Services</a>
+                    <a href="#centres">Centres of Excellence</a>
+                    <a href="#appointment">Book Appointment</a>
+                    <a href="#contact">Contact</a>
+                    <button class="btn-login" id="loginBtn">
+                        <i class="fas fa-user"></i> Login
+                    </button>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-slider">
+            <div class="slide active">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Future Ready with Latest Robotic Surgery</h1>
+                        <p class="hero-subtitle">More Precision. Smaller Incision. Faster Recovery</p>
+                    </div>
+                    <div class="hero-image">
+                        <div class="robotic-arm"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Advanced Healthcare for Everyone</h1>
+                        <p class="hero-subtitle">25 Years of Trust and Excellence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="search-card">
+            <h3>I'm looking for</h3>
+            <div class="search-form">
+                <div class="form-group">
+                    <label>Location/City</label>
+                    <select>
+                        <option>Bangalore</option>
+                        <option>Mumbai</option>
+                        <option>Delhi</option>
+                        <option>Kolkata</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Search Doctors by</label>
+                    <input type="text" placeholder="Specialty, Condition, Doctor's name">
+                </div>
+                <button class="btn-search">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Centres of Excellence -->
+    <section id="centres" class="centres">
+        <div class="container">
+            <h2 class="section-title">Our Centres of Excellence</h2>
+            <div class="centres-grid">
+                <div class="centre-card">
+                    <div class="centre-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Cardiac Sciences</h3>
+                    <p>Advanced cardiac care with state-of-the-art technology and expert cardiologists.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="centre-card">
+                    <div class="centre-icon">
+                        <i class="fas fa-ribbon"></i>
+                    </div>
+                    <h3>Cancer Care</h3>
+                    <p>Comprehensive oncology services with cutting-edge treatment options.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="centre-card">
+                    <div class="centre-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Neuro Sciences</h3>
+                    <p>We offer specialised care for a wide range of neurological disorders in adults & children and are equipped with advanced technologies.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="centre-card">
+                    <div class="centre-icon">
+                        <i class="fas fa-stomach"></i>
+                    </div>
+                    <h3>Gastro Sciences</h3>
+                    <p>Expert gastroenterology care for digestive health and disorders.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="centre-card">
+                    <div class="centre-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h3>Orthopaedics</h3>
+                    <p>Advanced orthopedic care including joint replacement and sports medicine.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-user-md"></i>
+                    <h4>Find a Doctor</h4>
+                    <p>Search and connect with our expert doctors</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <h4>Book Appointment</h4>
+                    <p>Schedule your visit with ease</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-video"></i>
+                    <h4>Video Consultation</h4>
+                    <p>Consult doctors from home</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-ambulance"></i>
+                    <h4>24/7 Emergency</h4>
+                    <p>Round-the-clock emergency care</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-vials"></i>
+                    <h4>Health Check Package</h4>
+                    <p>Comprehensive health screening</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-pills"></i>
+                    <h4>Pharmacy</h4>
+                    <p>Online medicine ordering</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Appointment Section -->
+<section id="appointment" class="appointment">
+    <div class="container">
+        <h2>Book an Appointment</h2>
+        <p>Schedule your consultation with our expert healthcare professionals</p>
+        <button class="btn-book-appointment" onclick="openAppointmentModal()">
+            <i class="fas fa-calendar-plus"></i> Book My Appointment
+        </button>
+    </div>
+</section>
+
+<!-- Quick Appointment Modal (Add before closing </body> tag) -->
+<div id="quickAppointmentModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeAppointmentModal()">&times;</span>
+        <h2>Quick Appointment Request</h2>
+        <p style="color: #666; margin-bottom: 20px;">Fill in your details to request an appointment</p>
+        
+        <form id="quickAppointmentForm">
+            <div class="form-field">
+                <input type="text" id="quickName" placeholder="Your Full Name *" required>
+            </div>
+            <div class="form-field">
+                <input type="email" id="quickEmail" placeholder="Your Email *" required>
+            </div>
+            <div class="form-field">
+                <input type="tel" id="quickPhone" placeholder="Your Phone Number *" required>
+            </div>
+            <div class="form-field">
+                <select id="quickDepartment" required>
+                    <option value="">Select Department *</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <select id="quickDoctor" required>
+                    <option value="">First select a department</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <input type="date" id="quickDate" required>
+            </div>
+            <div class="form-field">
+                <input type="time" id="quickTime" required>
+            </div>
+            <div class="form-field">
+                <textarea id="quickReason" rows="3" placeholder="Reason for visit *" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Submit Request</button>
+        </form>
+        
+        <div id="appointmentSuccess" style="display: none; text-align: center; padding: 30px;">
+            <div style="font-size: 50px; color: #4CAF50; margin-bottom: 20px;">✓</div>
+            <h3 style="color: #4CAF50; margin-bottom: 15px;">Appointment Request Submitted!</h3>
+            <p style="margin-bottom: 10px;">Your appointment has been registered successfully.</p>
+            <p style="margin-bottom: 20px;"><strong>Please login to track your appointment status:</strong></p>
+            <div style="background: #f5f5f5; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                <p style="margin-bottom: 10px;"><strong>Login Credentials:</strong></p>
+                <p id="loginEmail" style="color: #0066cc; font-weight: 600; margin-bottom: 5px;"></p>
+                <p style="color: #666; font-size: 14px;">Password: <strong>patient123</strong></p>
+            </div>
+            <a href="patient_login.html" class="btn-submit" style="display: inline-block; text-decoration: none; margin-top: 10px;">
+                Go to Patient Login
+            </a>
+        </div>
+    </div>
+</div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Write to Us</h2>
+            <p class="section-subtitle">Have questions? We'd love to hear from you.</p>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <p>123 Healthcare Avenue<br>Bangalore, Karnataka 560001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>18003090309<br>Emergency: +91 80 1234 5678</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>info@curenation.com<br>support@curenation.com</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-field">
+                            <input type="text" required placeholder="Your Name *">
+                        </div>
+                        <div class="form-field">
+                            <input type="email" required placeholder="Your Email *">
+                        </div>
+                        <div class="form-field">
+                            <input type="text" required placeholder="Subject *">
+                        </div>
+                        <div class="form-field">
+                            <textarea rows="5" required placeholder="Your Message *"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Patient Guide</h4>
+                    <ul>
+                        <li><a href="#">Our Network</a></li>
+                        <li><a href="#">Make an Enquiry</a></li>
+                        <li><a href="#">Find a Doctor</a></li>
+                        <li><a href="#">Book an Appointment</a></li>
+                        <li><a href="#">Video Consultation</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Common Searches</h4>
+                    <ul>
+                        <li><a href="#">Chest Pain</a></li>
+                        <li><a href="#">Heart Attack</a></li>
+                        <li><a href="#">Varicose Veins</a></li>
+                        <li><a href="#">Thyroid Problems</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>For Medical Professionals</h4>
+                    <ul>
+                        <li><a href="#">Academics</a></li>
+                        <li><a href="#">Clinical Research</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Leadership</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">CSR</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CURE NATION. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Choose Login Type</h2>
+            <div class="login-options">
+                <a href="patient_login.html">
+                <div class="login-option" id="patientLoginOption">
+                    <i class="fas fa-user"></i>
+                    <h3>Patient Login</h3>
+                    <p>Access your medical records and appointments</p>
+                </div>
+                </a>
+                <a href="admin_login.html">
+                <div class="login-option" id="adminLoginOption">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Admin Login</h3>
+                    <p>Manage hospital operations and staff</p>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

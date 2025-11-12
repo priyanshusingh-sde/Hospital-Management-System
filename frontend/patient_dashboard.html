@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - CURE NATION</title>
+    <link rel="stylesheet" href="patient_dashboard.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">CURE NATION</div>
+            <button class="close-sidebar" onclick="toggleSidebar()">×</button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-section="overview">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                    <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>Overview</span>
+            </a>
+            
+            <a href="#" class="nav-item" data-section="appointments">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M16 2V6M8 2V6M3 10H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Appointments</span>
+            </a>
+            
+            <a href="#" class="nav-item" data-section="medicines">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="8" y="3" width="8" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M9 9H15M9 13H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>My Medicines</span>
+            </a>
+            
+            <a href="#" class="nav-item" data-section="pharmacy">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <circle cx="9" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="20" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+                    <path d="M1 1H5L7.68 14.39C7.77 14.83 8.16 15.16 8.61 15.16H19.4C19.85 15.16 20.24 14.83 20.33 14.39L22 6H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Online Pharmacy</span>
+            </a>
+            
+            <a href="#" class="nav-item" data-section="reports">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 2V8H20M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Medical Reports</span>
+            </a>
+            
+            <a href="#" class="nav-item" data-section="profile">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                    <path d="M6 21V19C6 17.9391 6.42143 16.9217 7.17157 16.1716C7.92172 15.4214 8.93913 15 10 15H14C15.0609 15 16.0783 15.4214 16.8284 16.1716C17.5786 16.9217 18 17.9391 18 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Profile</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <button class="logout-btn" onclick="logout()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 17L21 12L16 7M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Logout</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <button class="menu-toggle" onclick="toggleSidebar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="search-bar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                    <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <input type="text" placeholder="Search appointments, medicines...">
+            </div>
+            
+            <div class="top-bar-actions">
+                <button class="icon-btn" id="notificationBtn">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="badge">3</span>
+                </button>
+                
+                <div class="user-profile" onclick="toggleUserMenu()">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23667eea'/%3E%3Ctext x='50' y='50' text-anchor='middle' dy='.3em' fill='white' font-size='40' font-family='Arial'%3ES%3C/text%3E%3C/svg%3E" alt="User">
+                    <span class="user-name">Shreya Sinde</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Overview Section -->
+            <section id="overview" class="content-section active">
+                <div class="section-header">
+                    <h1>Welcome back, Shreya! 👋</h1>
+                    <p class="section-subtitle">Here's your health overview</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="4" width="18" height="18" rx="2" stroke="white" stroke-width="2"/>
+                                <path d="M16 2V6M8 2V6M3 10H21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Next Appointment</h3>
+                            <p class="stat-value">Nov 15, 2025</p>
+                            <span class="stat-subtitle">Dr. Bruce Williams - 2:00 PM</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon purple">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect x="8" y="3" width="8" height="18" rx="2" stroke="white" stroke-width="2"/>
+                                <path d="M9 9H15M9 13H15" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Active Medicines</h3>
+                            <p class="stat-value">3</p>
+                            <span class="stat-subtitle">2 due today</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.7088 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 4L12 14.01L9 11.01" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Health Score</h3>
+                            <p class="stat-value">85%</p>
+                            <span class="stat-subtitle">Good condition</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Medical Reports</h3>
+                            <p class="stat-value">12</p>
+                            <span class="stat-subtitle">2 new this month</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two-col-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Upcoming Appointments</h2>
+                            <button class="btn-secondary" onclick="switchSection('appointments')">View All</button>
+                        </div>
+                        <div class="appointments-list" id="upcomingAppointments">
+                            <!-- Will be populated by JS -->
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Today's Medicines</h2>
+                            <button class="btn-secondary" onclick="switchSection('medicines')">View All</button>
+                        </div>
+                        <div class="medicines-list" id="todayMedicines">
+                            <!-- Will be populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Health Metrics</h2>
+                        <select class="metric-selector">
+                            <option>Last 7 days</option>
+                            <option>Last 30 days</option>
+                            <option>Last 90 days</option>
+                        </select>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <div class="metric-label">Blood Pressure</div>
+                            <div class="metric-value">120/80</div>
+                            <div class="metric-status normal">Normal</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Heart Rate</div>
+                            <div class="metric-value">75 bpm</div>
+                            <div class="metric-status normal">Normal</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Blood Sugar</div>
+                            <div class="metric-value">95 mg/dL</div>
+                            <div class="metric-status normal">Normal</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Weight</div>
+                            <div class="metric-value">50 kg</div>
+                            <div class="metric-status normal">Normal</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Appointments Section -->
+            <section id="appointments" class="content-section">
+                <div class="section-header">
+                    <h1>Appointments</h1>
+                    <button class="btn-primary" onclick="openBookingModal()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 5V19M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Book Appointment
+                    </button>
+                </div>
+
+                <div class="appointments-tabs">
+                    <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
+                    <button class="tab-btn" data-tab="past">Past</button>
+                    <button class="tab-btn" data-tab="cancelled">Cancelled</button>
+                </div>
+
+                <div class="appointments-container" id="appointmentsContainer">
+                    <!-- Will be populated by JS -->
+                </div>
+            </section>
+
+            <!-- Medicines Section -->
+            <section id="medicines" class="content-section">
+                <div class="section-header">
+                    <h1>My Medicines</h1>
+                    <button class="btn-primary" onclick="addMedicineModal()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 5V19M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Add Medicine
+                    </button>
+                </div>
+
+                <div class="medicine-schedule" id="medicineSchedule">
+                    <!-- Will be populated by JS -->
+                </div>
+            </section>
+
+            <!-- Online Pharmacy Section -->
+            <section id="pharmacy" class="content-section">
+                <div class="section-header">
+                    <h1>Online Pharmacy</h1>
+                    <div class="pharmacy-search">
+                        <input type="text" placeholder="Search medicines..." id="pharmacySearch">
+                        <button class="btn-primary">Search</button>
+                    </div>
+                </div>
+
+                <div class="pharmacy-categories">
+                    <button class="category-btn active">All</button>
+                    <button class="category-btn">Pain Relief</button>
+                    <button class="category-btn">Antibiotics</button>
+                    <button class="category-btn">Vitamins</button>
+                    <button class="category-btn">Diabetes</button>
+                    <button class="category-btn">Heart Care</button>
+                </div>
+
+                <div class="pharmacy-grid" id="pharmacyGrid">
+                    <!-- Will be populated by JS -->
+                </div>
+
+                <div class="cart-summary" id="cartSummary">
+                    <div class="cart-info">
+                        <span>Cart: <strong id="cartCount">0</strong> items</span>
+                        <span>Total: <strong id="cartTotal">₹0</strong></span>
+                    </div>
+                    <button class="btn-primary" onclick="viewCart()">View Cart</button>
+                </div>
+            </section>
+
+            <!-- Medical Reports Section -->
+            <section id="reports" class="content-section">
+                <div class="section-header">
+                    <h1>Medical Reports</h1>
+                    <button class="btn-primary" onclick="uploadReport()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17 8L12 3L7 8M12 3V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Upload Report
+                    </button>
+                </div>
+
+                <div class="reports-grid" id="reportsGrid">
+                    <!-- Will be populated by JS -->
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="content-section">
+                <div class="section-header">
+                    <h1>My Profile</h1>
+                    <button class="btn-primary" onclick="editProfile()">Edit Profile</button>
+                </div>
+
+                <div class="profile-container">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23667eea'/%3E%3Ctext x='50' y='50' text-anchor='middle' dy='.3em' fill='white' font-size='40' font-family='Arial'%3ES%3C/text%3E%3C/svg%3E" alt="Profile">
+                            <button class="change-photo-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M23 19C23 19.5304 22.7893 20.0391 22.4142 20.4142C22.0391 20.7893 21.5304 21 21 21H3C2.46957 21 1.96086 20.7893 1.58579 20.4142C1.21071 20.0391 1 19.5304 1 19V8C1 7.46957 1.21071 6.96086 1.58579 6.58579C1.96086 6.21071 2.46957 6 3 6H7L9 3H15L17 6H21C21.5304 6 22.0391 6.21071 22.4142 6.58579C22.7893 6.96086 23 7.46957 23 8V19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="13" r="4" stroke="white" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <h2>Shreya Sinde</h2>
+                        <p>Patient ID: #2025-0448</p>
+                    </div>
+
+                    <div class="profile-details">
+                        <h3>Personal Information</h3>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <label>Full Name</label>
+                                <p>Shreya Sinde</p>
+                            </div>
+                            <div class="detail-item">
+                                <label>Date of Birth</label>
+                                <p>January 15, 2002</p>
+                            </div>
+                            <div class="detail-item">
+                                <label>Age</label>
+                                <p>23 Years</p>
+                            </div>
+                            <div class="detail-item">
+                                <label>Blood Group</label>
+                                <p>O+</p>
+                            </div>
+                            <div class="detail-item">
+                                <label>Email</label>
+                                <p>shreya.sinde@email.com</p>
+                            </div>
+                            <div class="detail-item">
+                                <label>Phone</label>
+                                <p>+91 98765 43210</p>
+                            </div>
+                            <div class="detail-item">
+                                <label>Height</label>
+                                <p>1.78 m</p>
+                            </div>
+                            <div class="detail-item">
+                                <label>Weight</label>
+                                <p>50 kg</p>
+                            </div>
+                        </div>
+
+                        <h3>Emergency Contact</h3>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <label>Contact Name</label>
+                                <p>Rajesh Sinde</p>
+                            </div>
+                            <div class="detail-item">
+                                <label>Relationship</label>
+                                <p>Father</p>
+                            </div>
+                            <div class="detail-item">
+                                <label>Phone Number</label>
+                                <p>+91 98765 00000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Book Appointment Modal - REPLACE the existing modal in patient_dashboard.html -->
+<div id="bookingModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Book Appointment</h2>
+            <button class="close-modal" onclick="closeBookingModal()">&times;</button>
+        </div>
+        <form id="bookingForm">
+            <div class="form-group">
+                <label>Select Department *</label>
+                <select name="department" required>
+                    <option value="">Choose department...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Select Doctor *</label>
+                <select name="doctor" required disabled>
+                    <option value="">First select a department</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Date *</label>
+                    <input type="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Time *</label>
+                    <input type="time" name="time" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Reason for Visit *</label>
+                <textarea name="reason" rows="3" placeholder="Describe your symptoms or reason for visit..." required></textarea>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" onclick="closeBookingModal()">Cancel</button>
+                <button type="submit" class="btn-primary">Book Appointment</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <script src="patient_dashboard.js"></script>
+</body>
+</html>
