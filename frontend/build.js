@@ -1,8 +1,8 @@
-﻿const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 const src = path.resolve(__dirname);
-const dest = path.resolve(__dirname, 'build');
+const dest = path.resolve(__dirname, "build");
 
 function rimraf(dir) {
   if (!fs.existsSync(dir)) return;
@@ -18,7 +18,7 @@ function rimraf(dir) {
 function copyRecursive(srcDir, destDir) {
   if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
   for (const name of fs.readdirSync(srcDir)) {
-    if (name === 'node_modules' || name === 'build' || name.startsWith('.git')) continue;
+    if (name === "node_modules" || name === "build" || name.startsWith(".git")) continue;
     const from = path.join(srcDir, name);
     const to = path.join(destDir, name);
     const stat = fs.lstatSync(from);
