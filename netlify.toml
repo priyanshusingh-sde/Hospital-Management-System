@@ -1,7 +1,4 @@
-[build]
-base = "frontend"
-command = "npm install && npm run build"
-publish = "build"
-
-[context.production.environment]
-NODE_VERSION = "18"
+﻿[build]
+  command = \"npm --prefix frontend install && npm --prefix frontend run build\"
+  publish = \"frontend/build\"
+  functions = \"netlify/functions\"
