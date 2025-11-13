@@ -17,7 +17,6 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -26,6 +25,9 @@ app.use((req, res, next) => {
     console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
     next();
 });
+
+const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || 'https://curenation.netlify.app';
+app.use(cors({ origin: FRONTEND_ORIGIN }));
 
 // Health check route
 app.get('/health', (req, res) => {
