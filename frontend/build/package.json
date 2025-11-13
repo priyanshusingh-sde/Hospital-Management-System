@@ -1,0 +1,10 @@
+{
+  "name": "hospital-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node build.js",
+    "start": "node build.js && npx http-server build -p 5000 || (echo \"Open frontend/index.html manually\")",
+    "prepare": "echo \"Static frontend - no dependencies\""
+  }
+}
