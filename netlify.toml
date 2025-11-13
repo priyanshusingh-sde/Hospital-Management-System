@@ -1,4 +1,4 @@
-[build]
+﻿[build]
   command = "npm --prefix frontend install && npm --prefix frontend run build"
   publish = "frontend/build"
   functions = "netlify/functions"
