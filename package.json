@@ -1,4 +1,4 @@
-﻿{
+{
     "version":  "1.0.0",
     "name":  "hospital-management-site-deps",
     "description":  "Top-level package.json for Netlify Functions bundling",
