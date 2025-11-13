@@ -6,5 +6,8 @@
     "build": "node build.js",
     "start": "node build.js && npx http-server build -p 5000 || (echo \"Open frontend/index.html manually\")",
     "prepare": "echo \"Static frontend - no dependencies\""
+  },
+  "dependencies": {
+    "hospital-management-site-deps": "file:.."
   }
 }
