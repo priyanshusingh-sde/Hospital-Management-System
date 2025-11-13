@@ -1,14 +1,31 @@
-﻿// netlify/functions/server.js
-// Wrapper for Express app (backend/app.js) using serverless-http
-const serverless = require('serverless-http');
+﻿// defensive wrapper for Netlify functions — lazy-require backend and return 500 with error message if init fails
 const path = require('path');
 
-let app;
-try {
-  app = require(path.join(__dirname, '../../backend/app'));
-} catch (err) {
-  console.error('Failed to require backend/app.js. Ensure backend/app.js exists and exports an Express app.');
-  throw err;
-}
+module.exports.handler = async function(event, context) {
+  try {
+    // require serverless within handler to avoid top-level crashes
+    const serverless = require('serverless-http');
 
-module.exports.handler = serverless(app);
+    // Lazy-require the app. If backend/app.js throws (e.g. DB connect), catch below.
+    let app;
+    try {
+      app = require(path.join(__dirname, '../../backend/app'));
+    } catch (initErr) {
+      console.error('App init error:', initErr && initErr.stack ? initErr.stack : initErr);
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ ok: false, error: 'App initialization failed', message: initErr.message || String(initErr) }),
+      };
+    }
+
+    // Use serverless to handle the event
+    const handler = serverless(app);
+    return await handler(event, context);
+  } catch (err) {
+    console.error('Function wrapper error:', err && err.stack ? err.stack : err);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ ok: false, error: 'Function runtime error', message: err.message || String(err) }),
+    };
+  }
+};
